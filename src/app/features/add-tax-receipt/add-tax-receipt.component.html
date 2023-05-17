@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h4 class="modal-title">Agregar Comprobante</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Close click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form enctype="multipart/form-data">
+    <div class="form-group m-form__group">
+      <div class="row">
+        <div class="col-6">
+          <label>
+            RNC/Cedula
+          </label>
+          <input type="text" disabled class="form-control  m-input" name="rncCedula" [(ngModel)]="data.rncCedula" />
+        </div>
+        <div class="col-6">
+          <label>
+            NCF
+          </label>
+          <input type="text" disabled class="form-control  m-input" disabled name="ncf" [(ngModel)]="data.ncf" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label>
+          Precio
+        </label>
+        <input type="number" class="form-control  m-input" (ngModelChange)="onChangeAmount($event)" name="amount" [(ngModel)]="data.amount" />
+      </div>
+      <div class="col-6">
+        <label>
+          ITBIS
+        </label>
+        <input type="number" disabled class="form-control  m-input" step='.001' name="tax18" [(ngModel)]="data.tax18" />
+      </div>
+    </div>
+  </form>
+</div>
+<div class=" modal-footer ">
+  <button type="button " class="btn btn-outline-dark " (click)="activeModal.close( ' Close click ') ">Cancelar</button>
+  <button type="button " class="btn btn-primary " (click)="save() ">
+    Guardar
+  </button>
+</div>
